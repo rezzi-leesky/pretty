@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, my love ❤️🎂</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(145deg, #1a0b1e 0%, #2d0e2e 50%, #1f0a2a 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+      padding: 16px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* floating hearts background */
+    .hearts-float {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .heart-bg {
+      position: absolute;
+      font-size: 22px;
+      opacity: 0.2;
+      color: #ff8ac4;
+      animation: floatUp 12s infinite linear;
+      bottom: -50px;
+      user-select: none;
+      filter: drop-shadow(0 0 6px rgba(255, 100, 150, 0.4));
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.2;
+      }
+      100% {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* main card */
+    .birthday-card {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 840px;
+      background: rgba(255, 240, 245, 0.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 56px;
+      border: 2px solid rgba(255, 200, 230, 0.45);
+      box-shadow: 0 35px 60px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(255, 140, 200, 0.3) inset;
+      padding: 36px 28px 44px;
+      transition: all 0.3s ease;
+      text-align: center;
+      animation: cardGlow 5s infinite alternate;
+    }
+
+    @keyframes cardGlow {
+      0% {
+        box-shadow: 0 35px 60px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(255, 140, 200, 0.3) inset;
+      }
+      100% {
+        box-shadow: 0 40px 80px rgba(255, 80, 150, 0.5), 0 0 0 4px rgba(255, 200, 230, 0.6) inset;
+      }
+    }
+
+    /* cake area */
+    .cake-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .cake-emoji {
+      font-size: 90px;
+      line-height: 1;
+      filter: drop-shadow(0 10px 12px rgba(0,0,0,0.5));
+      animation: bounceCake 2.2s infinite ease-in-out;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.2s;
+    }
+
+    .cake-emoji:active {
+      transform: scale(0.9);
+    }
+
+    @keyframes bounceCake {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* candle flames */
+    .flame-row {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: -12px;
+      margin-bottom: 8px;
+    }
+
+    .flame {
+      font-size: 30px;
+      filter: drop-shadow(0 0 10px #ffa500);
+      animation: flicker 0.5s infinite alternate;
+      transition: opacity 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+
+    .flame.blown {
+      opacity: 0;
+      transform: scale(0.2) translateY(-30px);
+      pointer-events: none;
+    }
+
+    @keyframes flicker {
+      0% { transform: rotate(-4deg) scale(1); opacity: 0.9; }
+      100% { transform: rotate(4deg) scale(1.1); opacity: 1; }
+    }
+
+    /* heading */
+    h1 {
+      font-size: clamp(2.1rem, 9vw, 3.6rem);
+      font-weight: 700;
+      color: #ffe6f0;
+      text-shadow: 0 0 14px #ff4d8c, 0 0 36px #ff0066;
+      letter-spacing: 1px;
+      margin: 10px 0 5px;
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
+      word-break: break-word;
+      line-height: 1.2;
+    }
+
+    .sub-love {
+      font-size: 1.4rem;
+      color: #ffc1da;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 300;
+      text-shadow: 0 0 10px #ff66a3;
+    }
+
+    /* letter container – romantic, soft, readable */
+    .love-letter {
+      background: rgba(255, 220, 235, 0.12);
+      border-radius: 44px;
+      padding: 30px 28px;
+      margin: 16px 0 22px;
+      border: 1px solid rgba(255, 180, 210, 0.6);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3), inset 0 0 40px rgba(255, 200, 230, 0.15);
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #fff0f5;
+      font-weight: 300;
+      backdrop-filter: blur(6px);
+      text-align: left;
+    }
+
+    .love-letter p {
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    .love-letter p:last-child {
+      margin-bottom: 0;
+    }
+
+    .love-letter .highlight {
+      color: #ffb3d1;
+      font-weight: 400;
+    }
+
+    .love-letter .emoji-big {
+      font-size: 1.4rem;
+      display: inline-block;
+      margin: 0 2px;
+    }
+
+    .love-letter .quote {
+      font-style: italic;
+      color: #ffd1e5;
+      border-left: 3px solid #ff80b0;
+      padding-left: 18px;
+      margin: 22px 0 22px;
+      font-weight: 300;
+    }
+
+    .love-letter .signature {
+      margin-top: 24px;
+      font-style: italic;
+      font-weight: 400;
+      color: #ffb3d1;
+      text-align: right;
+      font-size: 1.4rem;
+      text-shadow: 0 0 12px #ff4d8c;
+    }
+
+    /* interactive gift / secret button */
+    .gift-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin: 28px 0 14px;
+    }
+
+    .gift-btn {
+      background: rgba(255, 100, 150, 0.25);
+      border: 2px solid #ff97c1;
+      color: #ffe4f0;
+      padding: 14px 30px;
+      border-radius: 60px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      backdrop-filter: blur(5px);
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(255, 0, 100, 0.25);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .gift-btn:hover {
+      background: rgba(255, 120, 170, 0.55);
+      transform: scale(1.04);
+      box-shadow: 0 8px 24px #ff4d8c;
+      border-color: #ffc1da;
+    }
+
+    .gift-btn:active {
+      transform: scale(0.97);
+    }
+
+    /* hidden surprise text */
+    .surprise-message {
+      margin-top: 20px;
+      font-size: 1.25rem;
+      color: #ffd1e5;
+      background: rgba(255, 80, 140, 0.2);
+      border-radius: 40px;
+      padding: 0 20px;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 0px solid transparent;
+      word-break: break-word;
+      line-height: 1.7;
+    }
+
+    .surprise-message.show {
+      max-height: 300px;
+      opacity: 1;
+      padding: 22px 20px;
+      border: 2px solid #ff80b0;
+      box-shadow: 0 0 40px #ff4d8c;
+    }
+
+    /* reset button small */
+    .reset-flames {
+      background: transparent;
+      border: 1px dashed #ff97c1;
+      color: #ffb3d1;
+      font-size: 0.95rem;
+      padding: 9px 22px;
+      border-radius: 40px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .reset-flames:hover {
+      background: rgba(255, 150, 200, 0.2);
+      color: #ffe4f0;
+    }
+
+    .tiny-note {
+      font-size: 0.85rem;
+      color: #ffb3d1;
+      margin-top: 30px;
+      opacity: 0.8;
+      letter-spacing: 1px;
+    }
+
+    /* floating hearts on click */
+    .click-heart {
+      position: fixed;
+      pointer-events: none;
+      font-size: 24px;
+      z-index: 9999;
+      animation: popHeart 0.9s ease-out forwards;
+      filter: drop-shadow(0 0 8px #ff4d8c);
+    }
+
+    @keyframes popHeart {
+      0% { transform: scale(0.5); opacity: 1; }
+      100% { transform: scale(2.2) translateY(-100px); opacity: 0; }
+    }
+
+    /* responsive */
+    @media (max-width: 560px) {
+      .birthday-card {
+        padding: 24px 16px 32px;
+        border-radius: 36px;
+      }
+      .cake-emoji {
+        font-size: 68px;
+      }
+      .flame {
+        font-size: 24px;
+      }
+      .love-letter {
+        font-size: 1rem;
+        padding: 20px 16px;
+        border-radius: 30px;
+      }
+      .love-letter .signature {
+        font-size: 1.2rem;
+      }
+      .gift-btn {
+        padding: 12px 22px;
+        font-size: 1rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .sub-love {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- floating hearts background -->
+  <div class="hearts-float" id="heartsBg"></div>
+
+  <main class="birthday-card" id="card">
+    <div class="cake-container">
+      <div class="cake-emoji" id="cakeEmoji">🎂</div>
+      <div class="flame-row" id="flameRow">
+        <span class="flame" data-index="0">🔥</span>
+        <span class="flame" data-index="1">🔥</span>
+        <span class="flame" data-index="2">🔥</span>
+      </div>
+    </div>
+
+    <h1>Happy Birthday, my love ❤️🎂</h1>
+    <div class="sub-love">✨ to the girl who skips levels ✨</div>
+
+    <div class="love-letter">
+      <p><span class="emoji-big">💌</span> I've been thinking about what to write you for days now, and honestly nothing felt like enough. But I'll just talk to you the way I always do — because that's what we are: easy, real, and full of little moments that mean everything to me.</p>
+
+      <p><span class="emoji-big">🎉</span> First of all... <span class="highlight">HAPPY BIRTHDAY</span> to the girl who skipped 80k like it was nothing 😂😂. I still can't get over it. You sat one exam, walked in nervous, and walked out with A2 waiting for you on Monday. No A1, no stress, just straight vibes. Only YOU could do that and then say <span class="highlight">"let me learn, there are many things I have to know again"</span> like it's nothing. That's the thing about you — you're humble even when you're winning. I love that about you. I really do.</p>
+
+      <p><span class="emoji-big">🤫</span> And the fact that your mom doesn't know? And <span class="highlight">"they will never know"</span>? 😭😂 That secret is safe with me, don't worry. Your brother telling you to skip AGAIN and you saying <span class="highlight">"don't exaggerate"</span> — I laughed so hard. You're out here collecting levels like Pokémon and still acting like it's normal. Meanwhile I'm just sitting here proud of you, watching you glow, and thanking God you're mine.</p>
+
+      <p><span class="emoji-big">💖</span> But beyond all the jokes and the "yess ya place" energy... I want you to know something today. <span class="highlight">You are one of the most special people in my life.</span> Not because of what you achieve, but because of who you are. You're caring, you're funny, you're stubborn in the best way, and you make even a simple conversation about exams and textbooks feel like my favorite part of the day. I can talk to you about nothing and everything, and it still feels like home.</p>
+
+      <p><span class="emoji-big">🌟</span> Today is about YOU. I hope you feel spoiled, loved, and appreciated — not just today, but every day. I hope this new year of your life brings you everything you're working for and more. I hope you pass every exam, learn everything you want to learn, and keep skipping levels like the queen you are 😂❤️. But more than anything, I hope you never forget how much you mean to me.</p>
+
+      <p><span class="emoji-big">🌍</span> I wish I could be there to celebrate with you properly — to see you smile, to hear you laugh at your own jokes, to just be next to you. But since I can't, know that I'm celebrating you from here, with my whole heart. You deserve the world, and I'll spend as long as it takes trying to give it to you, piece by piece.</p>
+
+      <p class="quote">"So happy birthday again, my obsession 🤧❤️‍🩹. My pretty little trtrouble. My favorite person. My little genius who skips levels and keeps secrets from her mom 😂. I'm so proud of you, I'm so grateful for you, and I love you more than I can put into one message."</p>
+
+      <p><span class="emoji-big">🎂</span> Enjoy your day. You've earned it. And don't worry... I'll be right here, cheering for you, annoying you, and loving you through every level. ❤️🎉</p>
+
+      <div class="signature">Your Rene 💙</div>
+    </div>
+
+    <div class="gift-section">
+      <button class="gift-btn" id="surpriseBtn">
+        <span>🎁</span> Open your surprise
+      </button>
+      <button class="gift-btn" id="kissBtn">
+        <span>💋</span> Send a kiss
+      </button>
+    </div>
+
+    <!-- hidden surprise message -->
+    <div class="surprise-message" id="surpriseMessage">
+      💌 You are my today, my tomorrow, and all my forevers. <br>
+      Happy birthday, my beautiful girlfriend. I love you more than words can say. 💕
+    </div>
+
+    <button class="reset-flames" id="resetFlamesBtn">
+      <span>🕯️</span> Relight the candles
+    </button>
+
+    <div class="tiny-note">made with love, just for you</div>
+  </main>
+
+  <script>
+    (function() {
+      // ---------- FLOATING HEARTS BACKGROUND ----------
+      const heartsBg = document.getElementById('heartsBg');
+      const heartSymbols = ['❤️', '💖', '💗', '💓', '💕', '💘', '🌸', '✨', '💋', '🎂'];
+      const HEART_COUNT = 28;
+
+      for (let i = 0; i < HEART_COUNT; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart-bg');
+        heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.fontSize = (Math.random() * 24 + 14) + 'px';
+        heart.style.animationDuration = (Math.random() * 10 + 8) + 's';
+        heart.style.animationDelay = (Math.random() * 10) + 's';
+        heart.style.opacity = Math.random() * 0.3 + 0.1;
+        heartsBg.appendChild(heart);
+      }
+
+      // ---------- CANDLE FLAMES ----------
+      const flames = document.querySelectorAll('.flame');
+      const resetBtn = document.getElementById('resetFlamesBtn');
+
+      function blowOut(flame) {
+        if (!flame.classList.contains('blown')) {
+          flame.classList.add('blown');
+          createClickHeart(flame);
+        }
+      }
+
+      // set flame listeners
+      flames.forEach(flame => {
+        flame.addEventListener('click', (e) => {
+          e.stopPropagation();
+          blowOut(flame);
+        });
+      });
+
+      // reset candles
+      resetBtn.addEventListener('click', () => {
+        flames.forEach(flame => {
+          flame.classList.remove('blown');
+        });
+      });
+
+      // ---------- SURPRISE MESSAGE TOGGLE ----------
+      const surpriseBtn = document.getElementById('surpriseBtn');
+      const surpriseMsg = document.getElementById('surpriseMessage');
+
+      surpriseBtn.addEventListener('click', () => {
+        surpriseMsg.classList.toggle('show');
+        createClickHeart(surpriseBtn, 6);
+      });
+
+      // ---------- KISS BUTTON ----------
+      const kissBtn = document.getElementById('kissBtn');
+      kissBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        for (let i = 0; i < 16; i++) {
+          setTimeout(() => {
+            createClickHeart(kissBtn, 1);
+          }, i * 50);
+        }
+        const originalText = kissBtn.innerHTML;
+        kissBtn.innerHTML = '<span>💖</span> muah! 💖';
+        setTimeout(() => {
+          kissBtn.innerHTML = originalText;
+        }, 1600);
+      });
+
+      // ---------- CLICK ANYWHERE (heart feedback) ----------
+      document.addEventListener('click', (e) => {
+        if (e.target.closest('.gift-btn') || e.target.closest('.flame') || e.target.closest('.reset-flames')) return;
+        createClickHeart(e.clientX, e.clientY, 1);
+      });
+
+      // ---------- CLICK ON CAKE ----------
+      const cakeEmoji = document.getElementById('cakeEmoji');
+      cakeEmoji.addEventListener('click', (e) => {
+        e.stopPropagation();
+        for (let i = 0; i < 10; i++) {
+          setTimeout(() => {
+            createClickHeart(cakeEmoji, 1);
+          }, i * 45);
+        }
+      });
+
+      // ---------- HELPER: CREATE CLICK HEART ----------
+      function createClickHeart(arg1, arg2) {
+        let posX, posY, numHearts = 1;
+
+        if (arg1 instanceof Element) {
+          const rect = arg1.getBoundingClientRect();
+          posX = rect.left + rect.width / 2;
+          posY = rect.top + rect.height / 2;
+          numHearts = (typeof arg2 === 'number' && arg2 > 1) ? arg2 : 1;
+        } else if (typeof arg1 === 'number' && typeof arg2 === 'number') {
+          posX = arg1;
+          posY = arg2;
+          numHearts = 1;
+        } else {
+          posX = window.innerWidth / 2;
+          posY = window.innerHeight / 2;
+        }
+
+        for (let i = 0; i < numHearts; i++) {
+          const heart = document.createElement('div');
+          heart.classList.add('click-heart');
+          const symbols = ['❤️', '💖', '💗', '💓', '💕', '💘', '🌸', '✨', '💋', '🎉'];
+          heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+
+          let offsetX = (Math.random() - 0.5) * (numHearts > 1 ? 120 : 40);
+          let offsetY = (Math.random() - 0.5) * (numHearts > 1 ? 120 : 40) - (numHearts > 1 ? 30 : 0);
+
+          heart.style.left = (posX + offsetX) + 'px';
+          heart.style.top = (posY + offsetY) + 'px';
+          heart.style.fontSize = (Math.random() * 20 + 18) + 'px';
+          heart.style.position = 'fixed';
+          heart.style.pointerEvents = 'none';
+          heart.style.zIndex = '9999';
+          heart.style.animation = 'popHeart 0.9s ease-out forwards';
+          document.body.appendChild(heart);
+
+          setTimeout(() => {
+            heart.remove();
+          }, 1000);
+        }
+      }
+
+      // Re-attach flame handlers to use the helper cleanly (already done)
+      // Ensure the surprise and kiss buttons are fresh (no duplicate listeners)
+      // But they are only bound once, so fine.
+
+      // Additional: clicking the card background (but not child) might be too much,
+      // so we keep it as is.
+
+      // Also re-bind flame if needed (already done)
+      // One more: The "blowOut" function uses createClickHeart(flame) – works.
+
+      // Finally: ensure reset also works with cloned flames? we didn't clone, fine.
+    })();
+  </script>
+</body>
+</html>
